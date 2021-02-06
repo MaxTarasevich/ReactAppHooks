@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MyCard(props) {
+function MyCard(props) {
   const classes = useStyles();
 
   return (
@@ -29,8 +32,8 @@ export default function MyCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.urlToImage}
-          title="Contemplative Reptile"
+          image={props.urlToImage == null ? './image-not-found.jpg' : props.urlToImage }
+         
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -42,13 +45,22 @@ export default function MyCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-       <a href={props.url}>Learn more</a>
+       
+        <Button href={props.url} size="small" color="primary">
+      Learn more
         </Button>
       </CardActions>
     </Card>
   );
+
 }
+
+
+MyCard.propTypes = {
+  urlToImage: PropTypes.string,
+  url:PropTypes.string,
+  author:PropTypes.string,
+  description:PropTypes.string,
+}
+
+export default MyCard;
