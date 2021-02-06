@@ -6,14 +6,16 @@ export default function Main() {
     const apiKey = 'http://newsapi.org/v2/top-headlines?country=ua&apiKey=5596b7d9b7a44d80aa0db5296e839f5b';
     const [data,setData] = useState();
     useEffect(()=>{
-        fetch(apiKey)
-        .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-          });
-    })
+      axios.get(apiKey).then((resp)=>{
+        const dataApi = resp.data;
+        setData(dataApi)
+      })
+      
+    },[setData])
+    return (  <h1>
+      Main works {console.log(data.articles)}
+      </h1>)
+    
+    }
 
     
-}

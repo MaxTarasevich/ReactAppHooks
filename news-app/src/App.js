@@ -1,6 +1,7 @@
 
 import Header from './header/header';
-import MyCard from './card/card'
+import MyCard from './card/card';
+import Main from './main/main'
 
 
 const styles = {
@@ -15,6 +16,7 @@ function App() {
     <div style={styles}>
    <Header/>
    <MyCard/>
+   <Main/>
    </div>
   );
 }
