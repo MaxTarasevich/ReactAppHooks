@@ -1,6 +1,5 @@
 
 import Header from './header/header';
-import MyCard from './card/card';
 import Main from './main/main'
 
 
@@ -15,7 +14,6 @@ function App() {
   return (
     <div style={styles}>
    <Header/>
-   <MyCard/>
    <Main/>
    </div>
   );
